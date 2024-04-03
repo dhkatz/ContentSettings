@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentSettings", "ContentSettings\ContentSettings.csproj", "{384D0D40-A096-46C7-A365-EB8A5CD55D54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsTemplate", "SettingsTemplate\SettingsTemplate.csproj", "{DB154562-903F-4F67-8CE6-130FB9B44DF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{384D0D40-A096-46C7-A365-EB8A5CD55D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{384D0D40-A096-46C7-A365-EB8A5CD55D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{384D0D40-A096-46C7-A365-EB8A5CD55D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB154562-903F-4F67-8CE6-130FB9B44DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB154562-903F-4F67-8CE6-130FB9B44DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB154562-903F-4F67-8CE6-130FB9B44DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB154562-903F-4F67-8CE6-130FB9B44DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

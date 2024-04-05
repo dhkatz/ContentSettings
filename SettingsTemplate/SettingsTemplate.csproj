@@ -34,8 +34,8 @@
     
     <!-- Game References -->
     <ItemGroup Condition="$(CI) != 'true'">
-        <Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Publicize="True" />
-        <Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" />
+        <Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Publicize="True" Private="False" ExcluseAssets="RUNTIME" />
+        <Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" Private="False" ExcluseAssets="RUNTIME" />
     </ItemGroup>
 
 	<ItemGroup Condition="$(CI) == 'true'">

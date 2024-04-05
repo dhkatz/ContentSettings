@@ -11,7 +11,7 @@ using Zorro.Settings;
 
 namespace ContentSettings
 {
-    [BepInPlugin("commander__cat.contentwarning.contentsettings", "ContentSettings", "1.0.0")]
+    [BepInPlugin("commander__cat.contentwarning.contentsettings", "ContentSettings", "1.0.1")]
     public class Main : BaseUnityPlugin
     {
         public static Main instance { get; private set; }

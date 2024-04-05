@@ -39,7 +39,7 @@
     </ItemGroup>
 
 	<ItemGroup Condition="$(CI) == 'true'">
-		<PackageReference Include="ContentWarning.Libs" Version="1.6.2" Publicize="true" Private="False" PrivateAssets="all" />
+		<PackageReference Include="ContentWarning.Libs" Version="1.7.1.1" Publicize="true" Private="False" PrivateAssets="all" />
 	</ItemGroup>
 
 

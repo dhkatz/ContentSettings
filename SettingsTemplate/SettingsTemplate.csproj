@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PackageId>SettingsTemplate</PackageId>
         <Version>1.0.0</Version>
@@ -20,6 +19,10 @@
 		<NoWarn>$(NoWarn);CS0436</NoWarn>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\ContentSettings\ContentSettings.csproj" />
+    </ItemGroup>
+
     <!-- BepInEx References -->
     <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" ExcludeAssets="RUNTIME"/>
@@ -34,16 +37,11 @@
     
     <!-- Game References -->
     <ItemGroup Condition="$(CI) != 'true'">
-        <Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Publicize="True" />
-        <Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" />
+        <Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Publicize="True" Private="False" ExcluseAssets="RUNTIME" />
+        <Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" Publicize="True" Private="False" ExcluseAssets="RUNTIME" />
     </ItemGroup>
 
-	<ItemGroup Condition="$(CI) == 'true'">
-		<PackageReference Include="ContentWarning.Libs" Version="1.6.2" Publicize="true" Private="False" PrivateAssets="all" />
-	</ItemGroup>
-
-
-	<ItemGroup>
-        <ProjectReference Include="..\ContentSettings\ContentSettings.csproj" />
+    <ItemGroup Condition="$(CI) == 'true'">
+        <PackageReference Include="ContentWarning.GameLibs.Steam" Version="0.1.7-a-ngd.0" Publicize="true" PrivateAssets="All" />
     </ItemGroup>
 </Project>

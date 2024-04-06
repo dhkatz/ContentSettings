@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>ContentSettings</PackageId>
     <Version>1.0.1</Version>
@@ -40,32 +39,17 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="$(CI) != 'true'">
-		<Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Publicize="True" />
-		<Reference Include="Assembly-CSharp-firstpass" HintPath="$(CW_REFERENCES)\Assembly-CSharp-firstpass.dll" />
-		<Reference Include="PhotonRealtime" HintPath="$(CW_REFERENCES)\PhotonRealtime.dll" />
-		<Reference Include="PhotonUnityNetworking" HintPath="$(CW_REFERENCES)\PhotonUnityNetworking.dll" />
-		<Reference Include="PhotonVoice.PUN" HintPath="$(CW_REFERENCES)\PhotonVoice.PUN.dll" />
-		<Reference Include="Sirenix.Serialization" HintPath="$(CW_REFERENCES)\Sirenix.Serialization.dll" />
-		<Reference Include="Unity.Localization" HintPath="$(CW_REFERENCES)\Unity.Localization.dll" />
-		<Reference Include="Unity.TextMeshPro" HintPath="$(CW_REFERENCES)\Unity.TextMeshPro.dll" />
-		<Reference Include="UnityEngine" HintPath="$(CW_REFERENCES)\UnityEngine.dll" />
-		<Reference Include="UnityEngine.CoreModule" HintPath="$(CW_REFERENCES)\UnityEngine.CoreModule.dll" />
-		<Reference Include="UnityEngine.IMGUIModule" HintPath="$(CW_REFERENCES)\UnityEngine.IMGUIModule.dll" />
-		<Reference Include="UnityEngine.InputLegacyModule" HintPath="$(CW_REFERENCES)\UnityEngine.InputLegacyModule.dll" />
-		<Reference Include="UnityEngine.JSONSerializeModule" HintPath="$(CW_REFERENCES)\UnityEngine.JSONSerializeModule.dll" />
-		<Reference Include="UnityEngine.LocalizationModule" HintPath="$(CW_REFERENCES)\UnityEngine.LocalizationModule.dll" />
-		<Reference Include="UnityEngine.SharedInternalsModule" HintPath="$(CW_REFERENCES)\UnityEngine.SharedInternalsModule.dll" />
-		<Reference Include="UnityEngine.UI" HintPath="$(CW_REFERENCES)\UnityEngine.UI.dll" />
-		<Reference Include="UnityEngine.UIElementsModule" HintPath="$(CW_REFERENCES)\UnityEngine.UIElementsModule.dll" />
-		<Reference Include="Zorro.Core.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Core.Runtime.dll" />
-		<Reference Include="Zorro.PhotonUtility" HintPath="$(CW_REFERENCES)\Zorro.PhotonUtility.dll" />
-		<Reference Include="Zorro.Recorder" HintPath="$(CW_REFERENCES)\Zorro.Recorder.dll" />
-		<Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" />
-		<Reference Include="Zorro.UI.Runtime" HintPath="$(CW_REFERENCES)\Zorro.UI.Runtime.dll" />
+		<Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="True" />
+		<Reference Include="Unity.Localization" HintPath="$(CW_REFERENCES)\Unity.Localization.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="true" />
+		<Reference Include="Unity.TextMeshPro" HintPath="$(CW_REFERENCES)\Unity.TextMeshPro.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="true" />
+		<Reference Include="UnityEngine.UI" HintPath="$(CW_REFERENCES)\UnityEngine.UI.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="true" />
+		<Reference Include="Zorro.Core.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Core.Runtime.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="true" />
+		<Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="True" />
+		<Reference Include="Zorro.UI.Runtime" HintPath="$(CW_REFERENCES)\Zorro.UI.Runtime.dll" Private="False" ExcluseAssets="RUNTIME" Publicize="true" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(CI) == 'true'">
-		<PackageReference Include="ContentWarning.Libs" Version="1.6.2" Publicize="true" Private="False" PrivateAssets="all" />
+		<PackageReference Include="ContentWarning.GameLibs.Steam" Version="0.1.7-a-ngd.0" Publicize="true" PrivateAssets="All" />
 	</ItemGroup>
 
   <ItemGroup>

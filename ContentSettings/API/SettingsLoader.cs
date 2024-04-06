@@ -42,6 +42,7 @@ namespace ContentSettings.API
         {
             Settings.Add(setting);
             setting.Load(SaveLoader);
+            setting.ApplyValue();
         }
     }
 }

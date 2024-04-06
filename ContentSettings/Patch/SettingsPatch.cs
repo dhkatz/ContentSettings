@@ -44,7 +44,6 @@ internal class SettingsPatch
         return false;
     }
 
-
     /// <summary>
     /// Patches the <see cref="SettingsMenu"/> to add our custom settings tab to the settings menu.
     /// </summary>

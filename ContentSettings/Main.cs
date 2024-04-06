@@ -1,27 +1,20 @@
 ﻿using BepInEx;
-using ContentSettings.API;
 using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using Zorro.Settings;
 
 namespace ContentSettings
 {
-    [BepInPlugin("commander__cat.contentwarning.contentsettings", "ContentSettings", "1.0.0")]
+    [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME,  MyPluginInfo.PLUGIN_VERSION)]
     public class Main : BaseUnityPlugin
     {
-        public static Main instance { get; private set; }
+        public static Main Instance { get; private set; } = null!;
 
-        private Harmony harmony;
+        private readonly Harmony _harmony = new (MyPluginInfo.PLUGIN_GUID);
 
-        void Awake()
+        private void Awake()
         {
-            harmony = new Harmony("commander__cat.contentwarning.contentsettingsharmony");
-            harmony.PatchAll();
+            Instance = this;
+
+            _harmony.PatchAll();
         }
     }
 }

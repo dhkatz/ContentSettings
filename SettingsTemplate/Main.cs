@@ -8,12 +8,13 @@ namespace SettingsTemplate
     [BepInPlugin("commander__cat.contentwarning.settingstemplate", "ContentSettings", "0.0.1")]
     public class Main : BaseUnityPlugin
     {
-        public static Main instance { get; private set; }
+        public static Main Instance { get; private set; } = null!;
 
         public bool FeatureEnabled = true;
+
         void Awake()
         {
-            instance = this;
+            Instance = this;
             SettingsLoader.RegisterSetting(new SettingTemplate());
         }
     }
@@ -22,7 +23,7 @@ namespace SettingsTemplate
     {
         public override void ApplyValue()
         {
-            Main.instance.FeatureEnabled = Value == 0 ? false : true; 
+            Main.Instance.FeatureEnabled = Value != 0; 
         }
 
         public override List<string> GetChoices()
@@ -30,7 +31,7 @@ namespace SettingsTemplate
             return new List<string>()
             {
                 "Off",
-                "On"
+                "On",
             };
         }
 
@@ -45,7 +46,7 @@ namespace SettingsTemplate
             return SettingCategory.Graphics;
         }
 
-        protected override int GetDefaultValue()
+        public override int GetDefaultValue()
         {
             return 1;
         }

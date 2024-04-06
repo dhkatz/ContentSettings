@@ -1,0 +1,7 @@
+{
+    "name": "ContentSettings",
+    "version_number": "1.0.1",
+    "website_url": "https://github.com/Commander-Cat101/ContentSettings",
+    "description": "A library for adding custom settings to Content Warning.",
+    "dependencies": ["BepInEx-BepInExPack-5.4.2100"]
+}

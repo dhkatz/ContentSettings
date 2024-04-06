@@ -46,7 +46,7 @@ namespace SettingsTemplate
             return SettingCategory.Graphics;
         }
 
-        protected override int GetDefaultValue()
+        public override int GetDefaultValue()
         {
             return 1;
         }

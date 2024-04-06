@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PackageId>SettingsTemplate</PackageId>
         <Version>1.0.0</Version>
@@ -39,7 +38,7 @@
     <!-- Game References -->
     <ItemGroup Condition="$(CI) != 'true'">
         <Reference Include="Assembly-CSharp" HintPath="$(CW_REFERENCES)\Assembly-CSharp.dll" Publicize="True" Private="False" ExcluseAssets="RUNTIME" />
-        <Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" Private="False" ExcluseAssets="RUNTIME" />
+        <Reference Include="Zorro.Settings.Runtime" HintPath="$(CW_REFERENCES)\Zorro.Settings.Runtime.dll" Publicize="True" Private="False" ExcluseAssets="RUNTIME" />
     </ItemGroup>
 
     <ItemGroup Condition="$(CI) == 'true'">

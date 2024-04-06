@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Zorro.Settings;
 
@@ -10,14 +6,15 @@ namespace ContentSettings.API
 {
     public static class SettingsLoader
     {
-        internal static DefaultSettingsSaveLoad SaveLoader = new DefaultSettingsSaveLoad();
+        internal static DefaultSettingsSaveLoad SaveLoader = new ();
 
-        internal static List<Setting> Settings = new List<Setting>();
+        internal static List<Setting> Settings = new ();
+
         internal static void LoadSettingsMenu(SettingsMenu menu)
         {
             foreach (SettingsCell settingsCell in menu.m_cells)
             {
-                GameObject.Destroy(settingsCell.gameObject);
+                Object.Destroy(settingsCell.gameObject);
             }
             menu.m_cells.Clear();
             SettingsHandler settingsHandler = GameHandler.Instance.SettingsHandler;
@@ -25,7 +22,7 @@ namespace ContentSettings.API
             for (int i = 0; i < settings.Count; i++)
             {
                 Setting setting = settings[i];
-                SettingsCell component = GameObject.Instantiate<GameObject>(menu.m_settingsCell, menu.m_settingsContainer).GetComponent<SettingsCell>();
+                SettingsCell component = Object.Instantiate(menu.m_settingsCell, menu.m_settingsContainer).GetComponent<SettingsCell>();
                 component.Setup(setting, settingsHandler);
                 menu.m_cells.Add(component);
             }

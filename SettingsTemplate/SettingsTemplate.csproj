@@ -20,6 +20,10 @@
 		<NoWarn>$(NoWarn);CS0436</NoWarn>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\ContentSettings\ContentSettings.csproj" />
+    </ItemGroup>
+
     <!-- BepInEx References -->
     <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" ExcludeAssets="RUNTIME"/>
@@ -40,10 +44,5 @@
 
     <ItemGroup Condition="$(CI) == 'true'">
         <PackageReference Include="ContentWarning.GameLibs.Steam" Version="0.1.7-a-ngd.0" Publicize="true" PrivateAssets="All" />
-    </ItemGroup>
-
-
-	<ItemGroup>
-        <ProjectReference Include="..\ContentSettings\ContentSettings.csproj" />
     </ItemGroup>
 </Project>

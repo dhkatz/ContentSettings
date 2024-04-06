@@ -1,45 +1,105 @@
-﻿using System.Collections.Generic;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SettingsLoader.cs" company="ContentSettings">
+// Copyright (c) ContentSettings. All rights reserved.
+// Licensed under the GPL-3.0 license.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace ContentSettings.API;
+
+using System.Collections.Generic;
 using UnityEngine;
 using Zorro.Settings;
+using TMPro;
+using UnityEngine.Localization.PropertyVariants;
 
-namespace ContentSettings.API
+/// <summary>
+/// Settings loader for custom settings belonging to mods.
+/// </summary>
+public static class SettingsLoader
 {
-    public static class SettingsLoader
+    private static readonly DefaultSettingsSaveLoad SaveLoader = new ();
+
+    private static readonly List<Setting> Settings = new ();
+
+    /// <summary>
+    /// Register a custom setting.
+    /// </summary>
+    /// <remarks>This will apply the loaded value of the setting immediately. See <see cref="Setting.ApplyValue"/>.</remarks>
+    /// <param name="setting">The setting to register.</param>
+    public static void RegisterSetting(Setting setting)
     {
-        internal static DefaultSettingsSaveLoad SaveLoader = new ();
+        Settings.Add(setting);
+        setting.Load(SaveLoader);
+        setting.ApplyValue();
+    }
 
-        internal static List<Setting> Settings = new ();
-
-        internal static void LoadSettingsMenu(SettingsMenu menu)
+    /// <summary>
+    /// Loads the settings into the settings menu.
+    /// </summary>
+    /// <param name="menu">The settings menu to load the settings into.</param>
+    internal static void LoadSettingsMenu(SettingsMenu menu)
+    {
+        foreach (var settingsCell in menu.m_cells)
         {
-            foreach (SettingsCell settingsCell in menu.m_cells)
-            {
-                Object.Destroy(settingsCell.gameObject);
-            }
-            menu.m_cells.Clear();
-            SettingsHandler settingsHandler = GameHandler.Instance.SettingsHandler;
-            List<Setting> settings = Settings;
-            for (int i = 0; i < settings.Count; i++)
-            {
-                Setting setting = settings[i];
-                SettingsCell component = Object.Instantiate(menu.m_settingsCell, menu.m_settingsContainer).GetComponent<SettingsCell>();
-                component.Setup(setting, settingsHandler);
-                menu.m_cells.Add(component);
-            }
+            Object.Destroy(settingsCell.gameObject);
         }
 
-        internal static void SaveSettings()
+        menu.m_cells.Clear();
+
+        var settingsHandler = GameHandler.Instance.SettingsHandler;
+        var settings = Settings;
+
+        foreach (var setting in settings)
         {
-            foreach (var setting in Settings)
-            {
-                setting.Save(SaveLoader);
-            }
+            var component = Object.Instantiate(menu.m_settingsCell, menu.m_settingsContainer).GetComponent<SettingsCell>();
+            component.Setup(setting, settingsHandler);
+            menu.m_cells.Add(component);
         }
-        public static void RegisterSetting(Setting setting)
+    }
+
+    /// <summary>
+    /// Saves all registered settings.
+    /// </summary>
+    internal static void SaveSettings()
+    {
+        foreach (var setting in Settings)
         {
-            Settings.Add(setting);
-            setting.Load(SaveLoader);
-            setting.ApplyValue();
+            setting.Save(SaveLoader);
         }
+    }
+
+    /// <summary>
+    /// Creates the settings tab for the modded settings.
+    /// </summary>
+    /// <param name="menu">The settings menu to create the tab in.</param>
+    /// <exception cref="System.Exception">Thrown when the existing tab to create the modded settings tab from is not found.</exception>
+    internal static void CreateSettings(SettingsMenu menu)
+    {
+        var settingsTabs = menu.transform.Find("Content")?.Find("TABS");
+        if (settingsTabs == null)
+        {
+            throw new System.Exception("Failed to find settings tab.");
+        }
+
+        if (settingsTabs.Find("MODDED") != null)
+        {
+            return;
+        }
+
+        var existingTab = settingsTabs.GetChild(0)?.gameObject;
+        if (existingTab == null)
+        {
+            throw new System.Exception("Failed to find existing tab.");
+        }
+
+        var customSettingsTab = Object.Instantiate(existingTab, settingsTabs, true);
+        customSettingsTab.name = "MODDED";
+
+        var customSettingsTabText = customSettingsTab.transform.GetChild(1);
+        Object.Destroy(customSettingsTabText.GetComponent<GameObjectLocalizer>());
+        customSettingsTabText.GetComponent<TextMeshProUGUI>().SetText("MODDED");
+
+        LoadSettingsMenu(menu);
     }
 }

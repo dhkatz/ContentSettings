@@ -1,0 +1,20 @@
+root = true
+
+[*.cs]
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+end_of_line = crlf
+insert_final_newline = true
+
+dotnet_diagnostic.SA1101.severity = none
+dotnet_diagnostic.SA1309.severity = none
+
+[**/Patch/**.cs]
+dotnet_diagnostic.SA1313.severity = none
+dotnet_diagnostic.SA1600.severity = none
+
+[{MyPluginInfo.cs,IgnoresAccessChecksToAttribute.cs}]
+dotnet_diagnostic.SA1633.severity = none
+generated_code = true

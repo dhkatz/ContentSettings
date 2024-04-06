@@ -36,6 +36,10 @@
 		  <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="MinVer" Version="4.*" PrivateAssets="all" Private="false" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118" ExcludeAssets="RUNTIME">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup Condition="$(CI) != 'true'">
@@ -71,4 +75,8 @@
 		</ItemGroup>
 		<Move SourceFiles="@(FilesToRename)" DestinationFiles="@(FilesToRename -&gt; Replace($(PlainVersion), $(MinVerVersion)))" />
 	</Target>
+
+	<ItemGroup>
+		<AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+	</ItemGroup>
 </Project>

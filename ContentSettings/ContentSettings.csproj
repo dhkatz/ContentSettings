@@ -73,7 +73,7 @@
     <Target Name="SetPluginVersion" BeforeTargets="AddGeneratedFile" DependsOnTargets="MinVer">
         <PropertyGroup>
             <PlainVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</PlainVersion>
-            <BepInExPluginVersion>$(Version)</BepInExPluginVersion>
+            <BepInExPluginVersion>$(PlainVersion)</BepInExPluginVersion>
             <GITHUB_RUN_ID Condition="$(CI) != 'true'">0</GITHUB_RUN_ID>
             <FileVersion>$(PlainVersion).$(GITHUB_RUN_ID)</FileVersion>
         </PropertyGroup>

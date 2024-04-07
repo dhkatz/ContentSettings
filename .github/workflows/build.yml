@@ -30,4 +30,5 @@ jobs:
       name: Upload Artifacts
       with:
         if-no-files-found: error
+        name: CommanderCat101.ContentSettings
         path: "${{ github.workspace }}/ContentSettings/bin/Debug/netstandard2.1/CommanderCat101.ContentSettings.dll"

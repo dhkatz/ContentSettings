@@ -7,4 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[unreleased]: https://github.com/Commander-Cat101/ContentSettings/compare/v1.0.0...HEAD
+## [1.0.1]
+
+### Fixed
+
+- Fixed release on Thunderstore.
+
+## [1.0.0]
+
+### Fixed
+
+- Fixed an issue with access rights due to the use of non-publicized DLLs.
+
+## [0.0.1]
+
+### Added
+
+- Initial release of ContentSettings.
+
+[unreleased]: https://github.com/Commander-Cat101/ContentSettings/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/Commander-Cat101/ContentSettings/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/Commander-Cat101/ContentSettings/compare/v0.0.1...v1.0.0
+[0.0.1]: https://github.com/Commander-Cat101/ContentSettings/releases/tag/v0.0.1

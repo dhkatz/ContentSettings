@@ -2,10 +2,10 @@
     <PropertyGroup>
         <PackageId>CommanderCat101.ContentSettings</PackageId>
         <AssemblyName>CommanderCat101.ContentSettings</AssemblyName>
-        <Version>1.0.1</Version>
+
         <Description>A library for adding Modded Settings.</Description>
         <Authors>CommanderCat101;dhkatz</Authors>
-        
+
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/Commander-Cat101/ContentSettings</PackageProjectUrl>
@@ -24,8 +24,8 @@
         <Nullable>enable</Nullable>
 
         <!-- Auto Versioning -->
-        <MinVerDefaultPreReleaseIdentifiers>dev</MinVerDefaultPreReleaseIdentifiers>
         <MinVerTagPrefix>v</MinVerTagPrefix>
+        <MinVerVerbosity>detailed</MinVerVerbosity>
 
         <!-- Needed for BepInEx.AssemblyPublicizer.MSBuild compatibility with MonoMod -->
         <NoWarn>$(NoWarn);CS0436</NoWarn>
@@ -72,11 +72,13 @@
     <Target Name="SetPluginVersion" BeforeTargets="AddGeneratedFile" DependsOnTargets="MinVer">
         <PropertyGroup>
             <PlainVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</PlainVersion>
-            <BepInExPluginVersion>$(PlainVersion)</BepInExPluginVersion>
+            <BepInExPluginVersion>$(Version)</BepInExPluginVersion>
+            <GITHUB_RUN_ID Condition="$(CI) != 'true'">0</GITHUB_RUN_ID>
+            <FileVersion>$(PlainVersion).$(GITHUB_RUN_ID)</FileVersion>
         </PropertyGroup>
     </Target>
 
-    <Target Name="ThunderstorePack" AfterTargets="PostBuildEvent" Condition="$(TargetFramework) == 'netstandard2.1' and $(Configuration) == 'Release' and $(CI) == 'true'" DependsOnTargets="SetPluginVersion">
+    <Target Name="ThunderstorePack" AfterTargets="PostBuildEvent" Condition="$(TargetFramework) == 'netstandard2.1' and $(Configuration) == 'Release' and $(CI) != 'true'" DependsOnTargets="SetPluginVersion">
         <Exec Command="dotnet tcli build --config-path $(ProjectDir)../assets/thunderstore.toml --package-version $(PlainVersion)"/>
         <ItemGroup>
             <FilesToRename Include="$(ProjectDir)../dist/*-$(PlainVersion).zip"/>
@@ -87,4 +89,9 @@
     <ItemGroup>
         <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json"/>
     </ItemGroup>
+
+    <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
+        <Exec Command="dotnet tool restore" StandardOutputImportance="Low" StandardErrorImportance="High"/>
+        <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory=".."/>
+    </Target>
 </Project>

@@ -30,4 +30,4 @@ jobs:
       name: Upload Artifacts
       with:
         if-no-files-found: error
-        path: "${{ github.workspace }}/ContentSettings/bin/netstandard2.1/CommanderCat101.ContentSettings.dll"
+        path: "${{ github.workspace }}/ContentSettings/bin/Debug/netstandard2.1/CommanderCat101.ContentSettings.dll"

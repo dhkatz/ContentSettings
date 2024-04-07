@@ -26,3 +26,8 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - uses: actions/upload-artifact@v3
+      name: Upload Artifacts
+      with:
+        if-no-files-found: error
+        path: "ContentSettings/bin/Release/CommanderCat101.ContentSettings.dll"

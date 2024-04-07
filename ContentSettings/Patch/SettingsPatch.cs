@@ -39,9 +39,10 @@ internal class SettingsPatch
         if (__instance.name == "MODDED")
         {
             SettingsLoader.LoadSettingsMenu(__instance.settingsMenu);
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     /// <summary>

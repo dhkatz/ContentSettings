@@ -30,4 +30,4 @@ jobs:
       name: Upload Artifacts
       with:
         if-no-files-found: error
-        path: "ContentSettings/bin/Release/CommanderCat101.ContentSettings.dll"
+        path: "ContentSettings/bin/Debug/CommanderCat101.ContentSettings.dll"

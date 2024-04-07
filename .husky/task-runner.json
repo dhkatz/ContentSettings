@@ -2,8 +2,9 @@
    "tasks": [
       {
          "name": "commit-message-linter",
-         "command": "husky",
+         "command": "dotnet",
          "args": [
+            "husky",
             "exec",
             ".husky/csx/commit-lint.csx",
             "--args",
@@ -13,8 +14,8 @@
       {
          "name": "dotnet-format",
          "group": "pre-commit",
-         "command": "dotnet-format",
-         "args": ["--include", "${staged}"],
+         "command": "dotnet",
+         "args": ["format", "--include", "${staged}"],
          "include": ["**/*.cs"]
       }
    ]

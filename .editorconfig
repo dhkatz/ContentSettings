@@ -1,5 +1,6 @@
 root = true
 
+# noinspection EditorConfigKeyCorrectness
 [*.cs]
 indent_size = 4
 indent_style = space
@@ -11,10 +12,12 @@ insert_final_newline = true
 dotnet_diagnostic.SA1101.severity = none
 dotnet_diagnostic.SA1309.severity = none
 
+# noinspection EditorConfigKeyCorrectness
 [**/Patch/**.cs]
 dotnet_diagnostic.SA1313.severity = none
 dotnet_diagnostic.SA1600.severity = none
 
-[{MyPluginInfo.cs,IgnoresAccessChecksToAttribute.cs}]
-dotnet_diagnostic.SA1633.severity = none
+# noinspection EditorConfigKeyCorrectness
+[MyPluginInfo.cs]
+dotnet_diagnostic.CS1591.severity = none
 generated_code = true

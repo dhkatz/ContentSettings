@@ -11,9 +11,9 @@ using BepInEx;
 using HarmonyLib;
 
 /// <summary>
-/// The main Content Settings plugin class
+/// The main Content Settings plugin class.
 /// </summary>
-[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME,  MyPluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class ContentSettings : BaseUnityPlugin
 {
     private Harmony Harmony { get; } = new (MyPluginInfo.PLUGIN_GUID);

@@ -5,7 +5,7 @@ using ContentSettings.API;
 using System.Collections.Generic;
 using Zorro.Settings;
 
-[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInPlugin("SettingsTemplate", "SettingsTemplate", "1.0.0")]
 public class Main : BaseUnityPlugin
 {
     public static Main Instance { get; private set; } = null!;

@@ -16,6 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Inject slug/short variables
+      uses: rlespinasse/github-slug-action@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -30,5 +34,5 @@ jobs:
       name: Upload Artifacts
       with:
         if-no-files-found: error
-        name: CommanderCat101.ContentSettings
-        path: "${{ github.workspace }}/ContentSettings/bin/Debug/netstandard2.1/CommanderCat101.ContentSettings.dll"
+        name: ${{ env.GITHUB_REPOSITORY_NAME_PART_SLUG }}.zip
+        path: "${{ github.workspace }}/**/bin/**/*.dll"

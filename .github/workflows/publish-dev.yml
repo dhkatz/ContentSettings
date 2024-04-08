@@ -1,4 +1,4 @@
-name: Publish
+name: Publish (Dev)
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
           dotnet tool restore
           
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore --configuration Release
 
       - name: Upload Thunderstore Artifact
         uses: actions/upload-artifact@v4

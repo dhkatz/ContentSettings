@@ -80,7 +80,9 @@ jobs:
           dotnet-version: "8.0.100"
 
       - name: Publish to NuGet.org
-        if: ${{ secrets.NUGET_API_TOKEN != '' }}
+        env:
+          NUGET_API_TOKEN: ${{ secrets.NUGET_API_TOKEN }}
+        if: ${{ env.NUGET_API_TOKEN != '' }}
         run: |
           dotnet nuget push ./${{ env.GITHUB_REPOSITORY_NAME_PART_SLUG }}/**/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_API_TOKEN }} --source https://api.nuget.org/v3/index.json
   
@@ -102,9 +104,9 @@ jobs:
           dotnet tool restore
 
       - name: Publishing to Thunderstore
-        if: ${{ secrets.THUNDERSTORE_API_TOKEN != '' }}
         env:
           TCLI_AUTH_TOKEN: ${{ secrets.THUNDERSTORE_API_TOKEN }}
           TCLI_NAMESPACE: ${{ vars.THUNDERSTORE_PACKAGE_NAMESPACE == '' && '' || format('--package-namespace {0}', vars.THUNDERSTORE_PACKAGE_NAMESPACE) }}
+        if: ${{ env.THUNDERSTORE_API_TOKEN != '' }}
         run: |
           dotnet tcli publish --config-path assets/thunderstore.toml --file dist/*.zip ${{ env.TCLI_NAMESPACE }}

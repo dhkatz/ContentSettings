@@ -32,9 +32,9 @@ jobs:
           path: dist/*.zip
 
       - name: Publishing to Thunderstore
-        if: ${{ secrets.THUNDERSTORE_DEV_API_TOKEN != '' }}
         env:
           TCLI_AUTH_TOKEN: ${{ secrets.THUNDERSTORE_DEV_API_TOKEN }}
           TCLI_NAMESPACE: ${{ vars.THUNDERSTORE_PACKAGE_NAMESPACE == '' && '' || format('--package-namespace {0}', vars.THUNDERSTORE_PACKAGE_NAMESPACE) }}
+        if: ${{ env.TCLI_AUTH_TOKEN != '' }}
         run: |
           dotnet tcli publish --config-path assets/thunderstore.toml --file dist/*.zip --repository https://thunderstore.dev --package-version "0.${{ github.run_number }}.0" ${{ env.TCLI_NAMESPACE }}

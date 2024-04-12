@@ -32,4 +32,4 @@ target = "/BepInEx/plugins/ContentSettings/"
 communities = [ "content-warning", ]
 repository = "https://thunderstore.io"
 [publish.categories]
-content-warning = [ "bepinex", "mods", "clientside", "serverside" ]
+content-warning = [ "libraries", "mods" ]

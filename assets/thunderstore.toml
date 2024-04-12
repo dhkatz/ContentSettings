@@ -2,10 +2,10 @@
 schemaVersion = "0.0.1"
 
 [package]
-namespace = "CommanderCat101"
+namespace = "dhkatz"
 name = "ContentSettings"
 description = "A library for adding custom settings to Content Warning."
-websiteUrl = "https://github.com/Commander-Cat101/ContentSettings"
+websiteUrl = "https://github.com/dhkatz/ContentSettings"
 containsNsfwContent = false
 
 [package.dependencies]
@@ -25,7 +25,7 @@ source = "../CHANGELOG.md"
 target = "/"
 
 [[build.copy]]
-source = "../ContentSettings/bin/Release/netstandard2.1/CommanderCat101.ContentSettings.dll"
+source = "../ContentSettings/bin/Release/netstandard2.1/dhkatz.ContentSettings.dll"
 target = "/BepInEx/plugins/ContentSettings/"
 
 [publish]

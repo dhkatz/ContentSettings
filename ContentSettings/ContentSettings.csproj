@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageId>CommanderCat101.ContentSettings</PackageId>
-        <AssemblyName>CommanderCat101.ContentSettings</AssemblyName>
+        <PackageId>dhkatz.ContentSettings</PackageId>
+        <AssemblyName>dhkatz.ContentSettings</AssemblyName>
 
         <Description>A library for adding Modded Settings.</Description>
         <Authors>CommanderCat101;dhkatz</Authors>
 
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/Commander-Cat101/ContentSettings</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Commander-Cat101/ContentSettings</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/dhkatz/ContentSettings</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dhkatz/ContentSettings</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
 
         <TargetFramework>netstandard2.1</TargetFramework>

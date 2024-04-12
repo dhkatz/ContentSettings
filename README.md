@@ -2,7 +2,7 @@
 
 A library for adding custom settings to Content Warning.
 
-[![Thunderstore - ContentSettings](https://img.shields.io/badge/Thunderstore-ContentSettings-blue?logo=thunderstore&logoColor=blue)](https://thunderstore.io/c/content-warning/p/CommanderCat101/ContentSettings/)
+[![Thunderstore - ContentSettings](https://img.shields.io/badge/Thunderstore-ContentSettings-blue?logo=thunderstore&logoColor=blue)](https://thunderstore.io/c/content-warning/p/dhkatz/ContentSettings/)
 [![Build](https://github.com/Commander-Cat101/ContentSettings/actions/workflows/build.yml/badge.svg)](https://github.com/Commander-Cat101/ContentSettings/actions/workflows/build.yml)
 
 ## Features

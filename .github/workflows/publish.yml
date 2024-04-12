@@ -48,7 +48,7 @@ jobs:
       - name: Publishing to Thunderstore
         env:
           TCLI_AUTH_TOKEN: ${{ secrets.THUNDERSTORE_API_TOKEN }}
-        if: ${{ env.THUNDERSTORE_API_TOKEN != '' }}
+        if: ${{ env.TCLI_AUTH_TOKEN != '' }}
         run: |
           dotnet tcli publish --config-path assets/thunderstore.toml --package-version ${{ env.PACKAGE_VERSION }}
           
